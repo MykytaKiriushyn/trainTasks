@@ -1,0 +1,20 @@
+#import <Foundation/Foundation.h>
+
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        NSArray *newArray = @[@"Apps", @"Music", @"Songs", @"iTunes", @"Books", @"Videos"];
+        
+        NSArray *sortedArray = [newArray sortedArrayUsingComparator:^NSComparisonResult(id first, id second) {
+            if ([first length] < [second length]) {
+                return NSOrderedAscending;
+            } else if ([first length] > [second length]) {
+                return NSOrderedDescending;
+            } else {
+                return NSOrderedSame;
+            }
+        }];
+        
+        NSLog(@"%@", sortedArray);
+    }
+    return 0;
+}
